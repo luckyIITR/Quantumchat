@@ -8,6 +8,10 @@ dotenv.config({
      path : 'config/config.env'
 })
 
+app.get("/", (req, res) => res.send("API Running"));
+
+app.use("/api/messenger", require('./routes/authRoute'));
+
 const PORT = process.env.PORT || 5000
 app.get('/', (req, res)=>{
      res.send('This is from backend Sever')
