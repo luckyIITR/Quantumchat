@@ -4,9 +4,11 @@ import morgan from "morgan";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectDB from "./Config/db.js";
-import userRoutes from "./routes/userAuth.js"
+import userRoutes from "./routes/userAuth.js";
 
-dotenv.config();
+dotenv.config({
+  path: "Config/config.env",
+});
 
 connectDB();
 
