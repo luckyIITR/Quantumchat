@@ -2,39 +2,17 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    username: {
-      type: String,
-      required: true,
-      trim: true,
-      lowercase: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    phone: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    avatar: {
-      type: String,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
+    name: { type: "String", required: true },
+    email: { type: "String", unique: true, required: true },
+    password: { type: "String", required: true },
+    phone: { type: "String", required: true },
     picture: {
-      type: String, // URL of image
+      type: "String",
+      required: true,
       default:
-        "https://icon-library.com/images/users-icon-png/users-icon-png-15.jpg",
+        "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     },
+    isAdmin: { type: Boolean, required: true, default: false },
   },
   { timestamps: true }
 );

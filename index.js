@@ -5,6 +5,9 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectDB from "./Config/db.js";
 import userRoutes from "./routes/userAuth.js";
+import profile from "./routes/profile.js";
+import messageRoutes from "./routes/messageRoutes.js";
+import chatRoutes from "./routes/chatRoutes.js";
 
 dotenv.config({
   path: "Config/config.env",
@@ -22,7 +25,11 @@ app.get("/", (req, res) => {
   res.send("<h1>Server is running</h1>");
 });
 
-app.use("/api", userRoutes);
+
+app.use("/api/auth", userRoutes);
+app.use("/api/profile", profile);
+app.use("/api/message", messageRoutes);
+app.use("/api/chat", chatRoutes);
 
 const PORT = process.env.PORT || 8080;
 
